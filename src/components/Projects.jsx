@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useVelocity, useSpring } from 'framer-motion';
 import { ExternalLink, ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import hostinecImg from '../assets/hostinec.png';
@@ -15,6 +15,12 @@ const ProjectItem = ({ title, desc, link, tech, index, isPlaceholder, img, t }) 
     // Parallax effect: Image moves faster/slower than text
     const yDisplace = useTransform(scrollYProgress, [0, 1], [100, -100]);
     const opacity = useTransform(scrollYProgress, [0, 0.2, 0.9, 1], [0, 1, 1, 0]);
+
+    // Skew effect based on scroll velocity (simulating inertia)
+    const { scrollY } = useScroll();
+    const scrollVelocity = useVelocity(scrollY);
+    const skewVelocity = useSpring(scrollVelocity, { stiffness: 100, damping: 30 });
+    const skewY = useTransform(skewVelocity, [-1000, 1000], [-5, 5]); // Subtle skew
 
     return (
         <motion.div
@@ -85,6 +91,7 @@ const ProjectItem = ({ title, desc, link, tech, index, isPlaceholder, img, t }) 
                     width: '45%',
                     height: '400px',
                     y: yDisplace, // Parallax movement
+                    skewY,        // Kinetic skew applied here
                     borderRadius: '20px',
                     overflow: 'hidden',
                     background: 'var(--glass-bg)',

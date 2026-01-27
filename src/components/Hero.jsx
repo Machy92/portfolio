@@ -22,7 +22,7 @@ const Hero = () => {
                     className="text-gradient"
                     initial={{ opacity: 0, y: 100, rotateX: -20 }}
                     animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                    transition={{ duration: 1.5, ease: "easeOut" }}
+                    transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
                     style={{
                         fontSize: 'clamp(3rem, 8vw, 6rem)',
                         fontWeight: '800',
@@ -35,17 +35,17 @@ const Hero = () => {
                     }}
                 >
                     <div style={{ display: 'block' }}>
-                        <GlitchText text={t.hero.title[0]} speed={40} delay={0.2} />
+                        <GlitchText text={t.hero.title[0]} speed={40} delay={1.0} />
                     </div>
                     <div style={{ display: 'block' }}>
-                        <GlitchText text={t.hero.title[1]} speed={40} delay={0.8} />
+                        <GlitchText text={t.hero.title[1]} speed={40} delay={1.6} />
                     </div>
                 </motion.h1>
 
                 <motion.h2
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5, duration: 1 }}
+                    transition={{ delay: 2.2, duration: 1 }}
                     style={{ fontSize: 'clamp(1.2rem, 3vw, 2rem)', color: 'var(--text-secondary)', fontWeight: '400', marginBottom: '40px' }}
                 >
                     {t.hero.subtitle}
@@ -54,7 +54,7 @@ const Hero = () => {
                 <motion.div
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.8, type: 'spring' }}
+                    transition={{ delay: 2.5, type: 'spring' }}
                 >
                     <motion.a
                         href="#projects"
