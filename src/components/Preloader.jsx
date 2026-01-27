@@ -1,8 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
+const words = [
+    "INITIALIZING...",
+    "LOADING ASSETS...",
+    "DECRYPTING DATA...",
+    "ESTABLISHING LINK...",
+    "RENDERING 3D ENGINE...",
+    "CALCULATING PHYSICS...",
+    "ACCESS GRANTED"
+];
+
 const Preloader = ({ onComplete }) => {
     const [count, setCount] = useState(0);
+    const [currentWord, setCurrentWord] = useState("");
+
+    // Simulate code stream
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const randomHex = Math.random().toString(16).substr(2, 8).toUpperCase();
+            setCurrentWord(`0x${randomHex} // ${words[Math.floor(Math.random() * words.length)]}`);
+        }, 150);
+        return () => clearInterval(interval);
+    }, []);
 
     useEffect(() => {
         const duration = 2500;
@@ -20,15 +40,7 @@ const Preloader = ({ onComplete }) => {
             });
         }, intervalTime);
 
-        // Simulate code scrolling
-        const codeTimer = setInterval(() => {
-            setCurrentLine(prev => (prev + 1) % codeSnippets.length);
-        }, 300);
-
-        return () => {
-            clearInterval(timer);
-            clearInterval(codeTimer);
-        };
+        return () => clearInterval(timer);
     }, [onComplete]);
 
     return (
@@ -41,86 +53,77 @@ const Preloader = ({ onComplete }) => {
                 left: 0,
                 width: '100%',
                 height: '100vh',
-                backgroundColor: '#050505',
+                backgroundColor: '#000',
                 zIndex: 99999,
                 display: 'flex',
+                flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                flexDirection: 'column',
                 color: '#fff',
-                fontFamily: '"Courier New", Courier, monospace',
                 overflow: 'hidden'
             }}
         >
-            {/* Background Code Overlay */}
-            <div style={{
-                position: 'absolute',
-                top: '5%',
-                left: '5%',
-                opacity: 0.1,
-                fontSize: '0.8rem',
-                pointerEvents: 'none',
-                textAlign: 'left'
-            }}>
-                {codeSnippets.map((line, i) => (
-                    <motion.div
-                        key={i}
-                        animate={{ opacity: i === currentLine ? 1 : 0.3 }}
-                        style={{ marginBottom: '5px' }}
-                    >
-                        {`> ${line}`}
-                    </motion.div>
-                ))}
-            </div>
-
-            {/* Main Counter */}
-            <div style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
-                <motion.span
+            {/* Center Counter */}
+            <div style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'flex-end' }}>
+                <span
                     style={{
-                        fontSize: 'clamp(4rem, 10vw, 8rem)',
+                        fontSize: 'clamp(5rem, 15vw, 10rem)',
+                        lineHeight: 0.8,
                         fontWeight: '900',
-                        display: 'block',
-                        lineHeight: 1,
-                        marginBottom: '20px'
+                        fontFamily: 'Inter, sans-serif',
+                        letterSpacing: '-5px'
                     }}
                 >
-                    {count}%
-                </motion.span>
-
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    key={currentLine} // Re-animate on change
-                    style={{
-                        fontSize: '1rem',
-                        color: '#888',
-                        textTransform: 'uppercase',
-                        letterSpacing: '2px'
-                    }}
-                >
-                    {count < 100 ? "Validating Assets..." : "System Ready"}
-                </motion.div>
+                    {count}
+                </span>
+                <span style={{ fontSize: '2rem', marginBottom: '1.5vw', fontWeight: 'bold' }}>%</span>
             </div>
 
-            {/* Progress Bar */}
+            {/* Code/Status Text */}
+            <div style={{
+                marginTop: '20px',
+                fontFamily: 'monospace',
+                color: 'rgba(255,255,255,0.5)',
+                fontSize: '14px',
+                height: '20px'
+            }}>
+                {currentWord}
+            </div>
+
+            {/* Progress Bar Line */}
             <div style={{
                 position: 'absolute',
-                bottom: '15%',
-                width: '300px',
+                bottom: '10%',
+                left: '10%',
+                width: '80%',
                 height: '2px',
-                background: '#333',
-                borderRadius: '4px',
+                background: 'rgba(255,255,255,0.1)',
                 overflow: 'hidden'
             }}>
                 <motion.div
                     style={{
+                        width: '100%',
                         height: '100%',
                         background: '#fff',
-                        width: `${count}%`,
-                        boxShadow: '0 0 20px rgba(255,255,255,0.8)'
+                        transformOrigin: 'left'
                     }}
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: count / 100 }}
+                    transition={{ duration: 0.1, ease: 'linear' }}
                 />
             </div>
+
+            {/* Background Grid/Noise (Optional decorative elements) */}
+            <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+                backgroundSize: '100px 100px',
+                pointerEvents: 'none'
+            }} />
         </motion.div>
     );
 };
