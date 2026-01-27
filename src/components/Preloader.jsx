@@ -1,21 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
-const codeSnippets = [
-    "System.init({ core: true, gpu: 'accelerated' });",
-    "Loading textures... [||||||||||] 100%",
-    "Mounting React components...",
-    "Connecting to Vercel edge network...",
-    "Optimizing physics engine (Cannon.js)...",
-    "Injecting ANTIGRAVITY module...",
-    "Parsing user data...",
-    "Done.",
-    "Executing startup sequence...",
-];
-
 const Preloader = ({ onComplete }) => {
     const [count, setCount] = useState(0);
-    const [currentLine, setCurrentLine] = useState(0);
 
     useEffect(() => {
         const duration = 2500;
