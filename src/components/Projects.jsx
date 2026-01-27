@@ -22,23 +22,21 @@ const ProjectItem = ({ title, desc, link, tech, index, isPlaceholder, img, t }) 
     const skewVelocity = useSpring(scrollVelocity, { stiffness: 100, damping: 30 });
     const skewY = useTransform(skewVelocity, [-1000, 1000], [-5, 5]); // Subtle skew
 
+    // Determine direction for desktop (handled by CSS order/direction, but handy for animation variants if needed)
+    // We strictly use CSS classes now for layout to handle media queries
+
     return (
         <motion.div
             ref={ref}
-            style={{
-                opacity,
-                display: 'flex',
-                flexDirection: index % 2 === 0 ? 'row' : 'row-reverse', // Zig-zag layout
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: '100px 0',
-                borderBottom: '1px solid rgba(255,255,255,0.1)',
-                position: 'relative'
-            }}
-            className="project-item"
+            style={{ opacity }}
+            className={`project-item ${index % 2 === 1 ? 'reverse-layout' : ''}`}
+        // Note: 'reverse-layout' logic would be in CSS if we wanted alternating sides on Desktop.
+        // But since we want column on mobile, we'll handle the alternation via inline style conditional 
+        // OR ideally just standard CSS classes. 
+        // Let's keep the inline style for DESKTOP direction but allow CSS !important to override it for mobile.
         >
             {/* Text Content */}
-            <div style={{ width: '45%', zIndex: 2 }}>
+            <div className="project-content" style={{ order: index % 2 === 0 ? 1 : 2 }}>
                 <div style={{ display: 'flex', gap: '10px', marginBottom: '20px', flexWrap: 'wrap' }}>
                     {tech.map((item, i) => (
                         <span key={i} style={{
@@ -87,26 +85,20 @@ const ProjectItem = ({ title, desc, link, tech, index, isPlaceholder, img, t }) 
 
             {/* Parallax Image / Visualization */}
             <motion.div
+                className="project-image-container"
                 style={{
-                    width: '45%',
-                    height: '400px',
                     y: yDisplace, // Parallax movement
                     skewY,        // Kinetic skew applied here
-                    borderRadius: '20px',
-                    overflow: 'hidden',
-                    background: 'var(--glass-bg)',
-                    border: '1px solid var(--glass-border)',
-                    position: 'relative',
-                    boxShadow: '0 20px 50px rgba(0,0,0,0.5)'
+                    order: index % 2 === 0 ? 2 : 1
                 }}
             >
                 {img ? (
                     <motion.img
-                        whileHover={{ scale: 1.1 }}
+                        whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.5 }}
                         src={img}
                         alt={title}
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        className="project-image"
                     />
                 ) : (
                     <div style={{

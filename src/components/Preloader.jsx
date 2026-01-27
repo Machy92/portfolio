@@ -66,6 +66,7 @@ const Preloader = ({ onComplete }) => {
             {/* Center Counter */}
             <div style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'flex-end' }}>
                 <span
+                    className="preloader-counter"
                     style={{
                         fontSize: 'clamp(5rem, 15vw, 10rem)',
                         lineHeight: 0.8,
@@ -80,12 +81,14 @@ const Preloader = ({ onComplete }) => {
             </div>
 
             {/* Code/Status Text */}
-            <div style={{
+            <div className="preloader-text" style={{
                 marginTop: '20px',
                 fontFamily: 'monospace',
                 color: 'rgba(255,255,255,0.5)',
                 fontSize: '14px',
-                height: '20px'
+                height: '20px',
+                textAlign: 'center',
+                padding: '0 10px'
             }}>
                 {currentWord}
             </div>
