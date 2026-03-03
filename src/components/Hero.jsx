@@ -35,10 +35,10 @@ const Hero = () => {
                     }}
                 >
                     <div style={{ display: 'block' }}>
-                        <GlitchText text={t.hero.title[0]} speed={40} delay={1.0} />
+                        <GlitchText text={t.hero.title[0]} speed={25} delay={0.2} />
                     </div>
                     <div style={{ display: 'block' }}>
-                        <GlitchText text={t.hero.title[1]} speed={40} delay={1.6} />
+                        <GlitchText text={t.hero.title[1]} speed={25} delay={0.5} />
                     </div>
                 </motion.h1>
 

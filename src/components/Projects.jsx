@@ -5,7 +5,7 @@ import { useLanguage } from '../context/LanguageContext';
 import hostinecImg from '../assets/hostinec.png';
 import spaImg from '../assets/spa.png';
 
-const ProjectItem = ({ title, desc, link, tech, index, isPlaceholder, img, t }) => {
+const ProjectItem = ({ title, desc, link, tech, index, isPlaceholder, img, t, skewY }) => {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -16,11 +16,7 @@ const ProjectItem = ({ title, desc, link, tech, index, isPlaceholder, img, t }) 
     const yDisplace = useTransform(scrollYProgress, [0, 1], [100, -100]);
     const opacity = useTransform(scrollYProgress, [0, 0.2, 0.9, 1], [0, 1, 1, 0]);
 
-    // Skew effect based on scroll velocity (simulating inertia)
-    const { scrollY } = useScroll();
-    const scrollVelocity = useVelocity(scrollY);
-    const skewVelocity = useSpring(scrollVelocity, { stiffness: 100, damping: 30 });
-    const skewY = useTransform(skewVelocity, [-1000, 1000], [-5, 5]); // Subtle skew
+    // Skew effect based on scroll velocity (passed via props)
 
     // Determine direction for desktop (handled by CSS order/direction, but handy for animation variants if needed)
     // We strictly use CSS classes now for layout to handle media queries
@@ -143,6 +139,12 @@ const Projects = () => {
         }
     ];
 
+    // Global scroll velocity for all items
+    const { scrollY } = useScroll();
+    const scrollVelocity = useVelocity(scrollY);
+    const skewVelocity = useSpring(scrollVelocity, { stiffness: 100, damping: 30 });
+    const skewY = useTransform(skewVelocity, [-1000, 1000], [-5, 5]); // Subtle skew
+
     return (
         <section id="projects" style={{ padding: '100px 0', overflow: 'hidden' }}>
             <div className="container">
@@ -159,7 +161,7 @@ const Projects = () => {
 
                 <div>
                     {t.projects.items.map((item, i) => (
-                        <ProjectItem key={i} {...item} {...staticData[i]} index={i} t={t} />
+                        <ProjectItem key={i} {...item} {...staticData[i]} index={i} t={t} skewY={skewY} />
                     ))}
                 </div>
             </div>
