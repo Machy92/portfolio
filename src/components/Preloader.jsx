@@ -168,7 +168,7 @@ const Preloader = forwardRef(({ onComplete }, ref) => {
                 top: 0,
                 left: 0,
                 width: '100%',
-                height: '100vh',
+                height: '100dvh', // Use dvh for mobile browser support
                 backgroundColor: '#000',
                 zIndex: 99999,
                 display: 'flex',
@@ -180,7 +180,7 @@ const Preloader = forwardRef(({ onComplete }, ref) => {
             }}
         >
             {/* Center 3D Globe */}
-            <div style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '50vh', maxWidth: '800px' }}>
+            <div style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: 'clamp(250px, 40dvh, 500px)', maxWidth: '100vw' }}>
                 {/* Increased camera distance / fov to fit the rings */}
                 <Canvas camera={{ position: [0, 0, 8.5], fov: 45 }} gl={{ antialias: true, alpha: true }}>
                     <ambientLight intensity={0.5} />
@@ -195,7 +195,7 @@ const Preloader = forwardRef(({ onComplete }, ref) => {
 
             {/* Code/Status Text */}
             <div className="preloader-text" style={{
-                marginTop: '40px',
+                marginTop: 'clamp(10px, 3vh, 30px)',
                 fontFamily: 'monospace',
                 color: 'rgba(255,255,255,0.5)',
                 fontSize: '14px',
@@ -209,7 +209,7 @@ const Preloader = forwardRef(({ onComplete }, ref) => {
             {/* Bottom Percentage */}
             <div style={{
                 position: 'absolute',
-                bottom: 'calc(10% + 15px)',
+                bottom: 'calc(clamp(5%, 8dvh, 10%) + 15px)',
                 right: '10%',
                 fontFamily: 'Inter, sans-serif',
                 fontWeight: 'bold',
@@ -222,7 +222,7 @@ const Preloader = forwardRef(({ onComplete }, ref) => {
             {/* Progress Bar Line */}
             <div style={{
                 position: 'absolute',
-                bottom: '10%',
+                bottom: 'clamp(5%, 8dvh, 10%)',
                 left: '10%',
                 width: '80%',
                 height: '2px',
