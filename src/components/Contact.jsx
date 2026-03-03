@@ -20,7 +20,7 @@ const Contact = () => {
                         {t.contact.desc}
                     </p>
 
-                    <div style={{ display: 'flex', justifyContent: 'center', gap: 'clamp(10px, 3vw, 40px)', flexWrap: 'nowrap', padding: '0 10px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'center', gap: 'clamp(6px, 2vw, 40px)', flexWrap: 'nowrap', padding: '0 5px' }}>
                         {[
                             { Icon: Mail, link: "mailto:machy.machy92@gmail.com", label: "Email" },
                             { Icon: Github, link: "https://github.com/Machy92", label: "GitHub" },
@@ -36,8 +36,8 @@ const Contact = () => {
                                 whileHover={{ y: -10, scale: 1.2, color: 'var(--primary)' }}
                                 style={{ color: 'var(--text-main)', transition: 'color 0.3s', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', textDecoration: 'none' }}
                             >
-                                <div className="glass" style={{ padding: 'clamp(12px, 3vw, 20px)', borderRadius: '50%' }}>
-                                    <Icon size={24} style={{ width: 'clamp(20px, 5vw, 32px)', height: 'clamp(20px, 5vw, 32px)' }} />
+                                <div className="glass" style={{ padding: 'clamp(10px, 2vw, 20px)', borderRadius: '50%' }}>
+                                    <Icon size={28} style={{ width: 'clamp(26px, 7vw, 36px)', height: 'clamp(26px, 7vw, 36px)' }} />
                                 </div>
                             </motion.a>
                         ))}
