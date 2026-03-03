@@ -68,16 +68,17 @@ const About = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         style={{
-                            width: '200px',
-                            height: '200px',
+                            width: '240px',
+                            height: '240px',
                             borderRadius: '50%',
                             overflow: 'hidden',
                             border: '4px solid var(--primary)',
                             boxShadow: '0 0 30px var(--primary)',
-                            marginBottom: '30px'
+                            marginBottom: '30px',
+                            transform: 'translate(120px, -140px)'
                         }}
                     >
-                        <img src={profileImg} alt="Matěj Machovský" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src={profileImg} alt="Matěj Machovský" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '85% 20%', transform: 'scale(1.4)' }} />
                     </motion.div>
                 </div>
 
