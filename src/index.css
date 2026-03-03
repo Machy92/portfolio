@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
 
 :root {
-  --bg-color: #030014;
+  --bg-color: #080000;
   --text-main: #ffffff;
-  --text-secondary: #a1a1aa;
+  --text-secondary: #ff9999;
 
-  --primary: #00f3ff;
-  /* Cyan */
-  --secondary: #bc13fe;
-  /* Neon Purple */
-  --accent: #ff0055;
-  /* Neon Pink */
+  --primary: #ff0000;
+  /* Red */
+  --secondary: #990000;
+  /* Dark Red */
+  --accent: #ff3333;
+  /* Light Red */
 
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-highlight: rgba(255, 255, 255, 0.2);
+  --glass-bg: rgba(255, 0, 0, 0.05);
+  --glass-border: rgba(255, 0, 0, 0.1);
+  --glass-highlight: rgba(255, 0, 0, 0.2);
 }
 
 * {
@@ -104,26 +104,6 @@ section {
 }
 
 /* Cursor Styles */
-body,
-a,
-button,
-input,
-textarea,
-select,
-* {
-  cursor: none !important;
-  /* Strictly hide default cursor everywhere */
-}
-
-/* Double reinforce for interactive elements that browsers love to force pointer on */
-a,
-button,
-[role="button"],
-input[type="submit"],
-input[type="button"] {
-  cursor: none !important;
-}
-
 .custom-cursor {
   position: fixed;
   top: 0;
@@ -133,8 +113,6 @@ input[type="button"] {
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  mix-blend-mode: difference;
-  transition: opacity 0.3s;
 }
 
 /* Re-enable pointer events for interactive content */

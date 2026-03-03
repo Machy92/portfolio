@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, forwardRef } from 'react';
 import { motion } from 'framer-motion';
 
 const words = [
@@ -11,7 +11,7 @@ const words = [
     "ACCESS GRANTED"
 ];
 
-const Preloader = ({ onComplete }) => {
+const Preloader = forwardRef(({ onComplete }, ref) => {
     const [count, setCount] = useState(0);
     const [currentWord, setCurrentWord] = useState("");
 
@@ -45,6 +45,7 @@ const Preloader = ({ onComplete }) => {
 
     return (
         <motion.div
+            ref={ref}
             initial={{ y: 0 }}
             exit={{ y: '-100%', transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } }}
             style={{
@@ -129,6 +130,6 @@ const Preloader = ({ onComplete }) => {
             }} />
         </motion.div>
     );
-};
+});
 
 export default Preloader;

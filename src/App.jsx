@@ -10,7 +10,6 @@ import MouseTrail from './components/MouseTrail';
 import LanguageSwitcher from './components/LanguageSwitcher';
 import SmoothScroll from './components/SmoothScroll';
 import { LanguageProvider } from './context/LanguageContext';
-import Cursor from './components/Cursor';
 import Preloader from './components/Preloader';
 import { AnimatePresence } from 'framer-motion';
 
@@ -19,7 +18,6 @@ function App() {
 
   return (
     <LanguageProvider>
-      <Cursor />
       <AnimatePresence mode='wait'>
         {isLoading && <Preloader key="preloader" onComplete={() => setIsLoading(false)} />}
       </AnimatePresence>
