@@ -20,7 +20,7 @@ const Contact = () => {
                         {t.contact.desc}
                     </p>
 
-                    <div style={{ display: 'flex', justifyContent: 'center', gap: '40px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'center', gap: 'clamp(15px, 4vw, 40px)', flexWrap: 'wrap', padding: '0 20px' }}>
                         {[
                             { Icon: Mail, link: "mailto:machy.machy92@gmail.com", label: "Email" },
                             { Icon: Github, link: "https://github.com/Machy92", label: "GitHub" },
