@@ -7,6 +7,7 @@ const translations = {
         hero: {
             title: ["MATĚJ", "MACHOVSKÝ"],
             subtitle: "IT Student & Front-End Creative",
+            workingAt: "Developer at",
             cta: "See My Work"
         },
         about: {
@@ -56,6 +57,7 @@ const translations = {
         hero: {
             title: ["MATĚJ", "MACHOVSKÝ"],
             subtitle: "Student IT & Front-End Vývojář",
+            workingAt: "Vývojář pro",
             cta: "Moje Práce"
         },
         about: {

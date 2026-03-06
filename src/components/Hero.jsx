@@ -46,15 +46,42 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 2.2, duration: 1 }}
-                    style={{ fontSize: 'clamp(1.2rem, 3vw, 2rem)', color: 'var(--text-secondary)', fontWeight: '400', marginBottom: '40px' }}
+                    style={{ fontSize: 'clamp(1.2rem, 3vw, 2rem)', color: 'var(--text-secondary)', fontWeight: '400', marginBottom: '30px' }}
                 >
                     {t.hero.subtitle}
                 </motion.h2>
 
+                <motion.a
+                    href="https://codecore.cz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 2.4, duration: 0.8 }}
+                    style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '10px',
+                        padding: '10px 20px',
+                        background: 'rgba(0, 243, 255, 0.05)',
+                        border: '1px solid rgba(0, 243, 255, 0.2)',
+                        borderRadius: '30px',
+                        color: 'var(--text-primary)',
+                        textDecoration: 'none',
+                        marginBottom: '40px',
+                        fontSize: '1rem',
+                        transition: 'all 0.3s ease'
+                    }}
+                    whileHover={{ scale: 1.05, borderColor: 'var(--primary)', background: 'rgba(0, 243, 255, 0.1)', boxShadow: '0 0 20px rgba(0, 243, 255, 0.2)' }}
+                >
+                    <span style={{ color: 'var(--text-secondary)' }}>{t.hero.workingAt}</span>
+                    <strong style={{ color: 'var(--primary)', letterSpacing: '1px' }}>CodeCore.cz</strong>
+                </motion.a>
+
                 <motion.div
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 2.5, type: 'spring' }}
+                    transition={{ delay: 2.6, type: 'spring' }}
                 >
                     <motion.a
                         href="#projects"
