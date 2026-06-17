@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
-import profileImg from '../assets/profile.JPG';
+import profileImg from '../assets/profile.jpg';
 
 const fadeUp = (delay = 0) => ({
     initial: { opacity: 0, y: 20 },
