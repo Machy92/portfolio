@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { User, MapPin, School, Code } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import profileImg from '../assets/profile.JPG';
+import profileImg from '../assets/profile.jpg';
 
 const icons = [User, MapPin, School, Code];
 
