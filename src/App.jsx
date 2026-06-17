@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Background from './components/Background';
+import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Services from './components/Services';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
-import LanguageSwitcher from './components/LanguageSwitcher';
 import SmoothScroll from './components/SmoothScroll';
 import { LanguageProvider } from './context/LanguageContext';
 import Preloader from './components/Preloader';
@@ -23,14 +23,14 @@ function App() {
 
       {!isLoading && (
         <>
-          <LanguageSwitcher />
+          <Navbar />
           <Background />
           <SmoothScroll>
             <div className="App">
               <Hero />
-              <Skills />
-              <Services />
               <About />
+              <Services />
+              <Skills />
               <Projects />
               <Contact />
             </div>

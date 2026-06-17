@@ -1,20 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --bg-color: #080000;
-  --text-main: #ffffff;
-  --text-secondary: #ff9999;
+  --bg-color: #09090B;
+  --bg-secondary: #111117;
+  --text-main: #FAFAFA;
+  --text-secondary: #71717A;
+  --text-muted: #3F3F46;
 
-  --primary: #ff0000;
-  /* Red */
-  --secondary: #990000;
-  /* Dark Red */
-  --accent: #ff3333;
-  /* Light Red */
+  --primary: #A855F7;
+  --secondary: #7C3AED;
+  --accent: #EC4899;
 
-  --glass-bg: rgba(255, 0, 0, 0.05);
-  --glass-border: rgba(255, 0, 0, 0.1);
-  --glass-highlight: rgba(255, 0, 0, 0.2);
+  --glass-bg: rgba(168, 85, 247, 0.04);
+  --glass-border: rgba(168, 85, 247, 0.12);
+  --glass-highlight: rgba(168, 85, 247, 0.18);
+
+  --nav-height: 70px;
 }
 
 * {
@@ -26,28 +27,30 @@
 body {
   background-color: var(--bg-color);
   color: var(--text-main);
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Inter', sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3, h4 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Lenis smooth scroll */
 html.lenis,
 html.lenis body {
   height: auto;
 }
-
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;
 }
-
 .lenis.lenis-smooth [data-lenis-prevent] {
   overscroll-behavior: contain;
 }
-
 .lenis.lenis-stopped {
   overflow: hidden;
 }
-
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
@@ -59,30 +62,27 @@ html.lenis body {
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
-
 ::-webkit-scrollbar-track {
   background: var(--bg-color);
 }
-
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, var(--primary), var(--secondary));
+  background: linear-gradient(to bottom, var(--primary), var(--accent));
   border-radius: 4px;
 }
 
 /* Utilities */
 .glass {
   background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .text-gradient {
-  background: linear-gradient(to right, var(--primary), var(--secondary));
+  background: linear-gradient(135deg, var(--primary), var(--accent));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -91,28 +91,14 @@ html.lenis body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
 section {
   position: relative;
   width: 100%;
-  padding: 100px 0;
+  padding: 120px 0;
   overflow: hidden;
-  pointer-events: none;
-  /* Allow click-through to 3D scene */
-}
-
-/* Cursor Styles */
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
 }
 
 /* Re-enable pointer events for interactive content */
@@ -123,19 +109,32 @@ section .glass {
   pointer-events: auto;
 }
 
-/* 
-   Phase 5: Mobile Responsiveness & Layout Refinements 
-   - Moved from inline styles to CSS to handle media queries properly 
-*/
+/* Section label pill */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border: 1px solid var(--glass-border);
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--primary);
+  background: var(--glass-bg);
+  margin-bottom: 24px;
+  font-family: 'Inter', sans-serif;
+}
 
+/* Projects layout */
 .project-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 100px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  position: relative;
-  gap: 40px;
+  padding: 80px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  gap: 60px;
 }
 
 .project-content {
@@ -145,56 +144,51 @@ section .glass {
 
 .project-image-container {
   width: 50%;
-  height: 400px;
+  height: 380px;
   border-radius: 20px;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-  background: var(--glass-bg);
   border: 1px solid var(--glass-border);
+  background: rgba(168, 85, 247, 0.03);
 }
 
 .project-image {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  /* FIX: Prevents cropping ("uriznuty okraje") */
-  background: #111;
-  /* Dark background for letterboxing */
+  background: #0D0D12;
 }
 
-/* Mobile Breakpoint */
-@media (max-width: 900px) {
+/* Navbar responsive */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .mobile-nav {
+    display: block !important;
+  }
+
   .project-item {
     flex-direction: column !important;
-    /* FIX: Stack vertically ("pod sebe") */
-    padding: 60px 0;
+    padding: 50px 0;
     gap: 30px;
   }
-
   .project-content {
     width: 100%;
-    text-align: left;
     order: 2 !important;
   }
-
   .project-image-container {
     width: 100%;
-    height: 250px;
-    /* FIX: Smaller height on mobile */
+    height: 240px;
     order: 1 !important;
-    /* Image on top */
-    margin-bottom: 20px;
   }
 }
 
-/* Preloader Mobile Adjustments */
+/* Preloader */
 @media (max-width: 600px) {
   .preloader-counter {
     font-size: 20vw !important;
-    /* Responsive font size */
   }
-
   .preloader-text {
     font-size: 10px !important;
     white-space: nowrap;

@@ -4,17 +4,27 @@ const LanguageContext = createContext();
 
 const translations = {
     en: {
+        nav: {
+            about: "About",
+            services: "Services",
+            projects: "Projects",
+            contact: "Contact"
+        },
         hero: {
             title: ["MATĚJ", "MACHOVSKÝ"],
             subtitle: "IT Student & Front-End Creative",
             workingAt: "Developer at",
-            cta: "See My Work"
+            cta: "See My Work",
+            learnMore: "About Me"
         },
         about: {
+            label: "01 — About",
             title: "About Me",
+            bio: "I'm a 19-year-old developer and IT student from Ústí nad Labem. I build digital experiences that are both beautiful and functional — currently crafting the web at CodeCore.cz.",
+            yearsLabel: "Years Coding",
             journeyTitle: "My Journey",
             cards: [
-                { title: "Who am I?", desc: "19 y.o. creative developer passionate about building digital experiences that matter." },
+                { title: "Who am I?", desc: "Creative developer passionate about building digital experiences that matter." },
                 { title: "Location", desc: "Based in Ústí nad Labem, Czech Republic. Open to remote work." },
                 { title: "Education", desc: "4th year IT student at SPŠUL, focusing on software development." },
                 { title: "Tech Stack", desc: "Specializing in React ecosystem, Three.js, and modern CSS." }
@@ -30,14 +40,16 @@ const translations = {
             title: "Technologies I Use"
         },
         services: {
+            label: "03 — Services",
             title: "What I Do",
             cards: [
                 { title: "Web Development", desc: "Custom websites built with modern technologies like React and Next.js. Fast, SEO-friendly, and responsive." },
                 { title: "UI/UX Design", desc: "Designing intuitive and visually stunning interfaces. Focusing on user experience and brand identity." },
-                { title: "Optimization", desc: "Improving website performance and speed. ensuring your site loads fast and ranks high on search engines." }
+                { title: "Optimization", desc: "Improving website performance and speed. Ensuring your site loads fast and ranks high on search engines." }
             ]
         },
         projects: {
+            label: "04 — Projects",
             title: "Featured Work",
             viewLive: "View Live Project",
             inDev: "In Development",
@@ -48,23 +60,34 @@ const translations = {
             ]
         },
         contact: {
-            title: "Get In Touch",
-            desc: "Have a project in mind or just want to say hi?",
+            label: "05 — Contact",
+            title: "Let's Work Together",
+            desc: "Have a project in mind or just want to say hi? My inbox is always open.",
             footer: "Built with React & Three.js."
         }
     },
     cs: {
+        nav: {
+            about: "O Mně",
+            services: "Služby",
+            projects: "Projekty",
+            contact: "Kontakt"
+        },
         hero: {
             title: ["MATĚJ", "MACHOVSKÝ"],
             subtitle: "Student IT & Front-End Vývojář",
             workingAt: "Vývojář pro",
-            cta: "Moje Práce"
+            cta: "Moje Práce",
+            learnMore: "O Mně"
         },
         about: {
+            label: "01 — O Mně",
             title: "O Mně",
+            bio: "Jsem 19letý vývojář a student IT z Ústí nad Labem. Tvořím digitální zážitky, které jsou krásné i funkční — momentálně buduji web na CodeCore.cz.",
+            yearsLabel: "Let Kóduji",
             journeyTitle: "Můj Příběh",
             cards: [
-                { title: "Kdo jsem?", desc: "19letý kreativní vývojář s vášní pro tvorbu digitálních zážitků, které dávají smysl." },
+                { title: "Kdo jsem?", desc: "Kreativní vývojář s vášní pro tvorbu digitálních zážitků, které dávají smysl." },
                 { title: "Lokace", desc: "Jsem z Ústí nad Labem. Otevřený práci na dálku." },
                 { title: "Vzdělání", desc: "4. ročník IT na SPŠUL, zaměření na vývoj softwaru a webových aplikací." },
                 { title: "Stack", desc: "Specializace na React ekosystém, Three.js a moderní CSS." }
@@ -80,6 +103,7 @@ const translations = {
             title: "Technologie"
         },
         services: {
+            label: "03 — Služby",
             title: "Co Dělám",
             cards: [
                 { title: "Web Vývoj", desc: "Weby na míru postavené na moderních technologiích jako React a Next.js. Rychlé, SEO-friendly a responsivní." },
@@ -88,6 +112,7 @@ const translations = {
             ]
         },
         projects: {
+            label: "04 — Projekty",
             title: "Vybrané Projekty",
             viewLive: "Zobrazit Projekt",
             inDev: "Ve Vývoji",
@@ -98,15 +123,16 @@ const translations = {
             ]
         },
         contact: {
-            title: "Kontakt",
-            desc: "Máš nápad na projekt nebo chceš jen pozdravit?",
+            label: "05 — Kontakt",
+            title: "Pojďme Spolupracovat",
+            desc: "Máš nápad na projekt nebo chceš jen pozdravit? Moje schránka je vždy otevřená.",
             footer: "Postaveno na React & Three.js."
         }
     }
 };
 
 export const LanguageProvider = ({ children }) => {
-    const [language, setLanguage] = useState('cs'); // Default to Czech as requested implicitly/contextually
+    const [language, setLanguage] = useState('cs');
 
     const toggleLanguage = () => {
         setLanguage((prev) => (prev === 'en' ? 'cs' : 'en'));

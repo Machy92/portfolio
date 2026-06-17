@@ -34,28 +34,28 @@ const TechGlobe = () => {
         <group ref={groupRef} rotation={[0.2, 0, 0]}>
             {/* Core dark sphere */}
             <Sphere args={[1.95, 64, 64]}>
-                <meshBasicMaterial color="#050000" />
+                <meshBasicMaterial color="#09090B" />
             </Sphere>
 
             {/* Glowing inner wireframe */}
             <Sphere args={[1.98, 32, 32]}>
-                <meshBasicMaterial color="#ff0000" wireframe transparent opacity={0.15} blending={THREE.AdditiveBlending} />
+                <meshBasicMaterial color="#7C3AED" wireframe transparent opacity={0.15} blending={THREE.AdditiveBlending} />
             </Sphere>
 
             {/* Detailed outer geometry (Icosahedron) */}
             <mesh>
                 <icosahedronGeometry args={[2.0, 5]} />
-                <meshBasicMaterial color="#ff2222" wireframe transparent opacity={0.2} blending={THREE.AdditiveBlending} />
+                <meshBasicMaterial color="#A855F7" wireframe transparent opacity={0.2} blending={THREE.AdditiveBlending} />
             </mesh>
 
             {/* Data particles on the surface */}
             <Points positions={points}>
-                <PointMaterial transparent color="#ff5555" size={0.02} sizeAttenuation={true} depthWrite={false} blending={THREE.AdditiveBlending} />
+                <PointMaterial transparent color="#A855F7" size={0.02} sizeAttenuation={true} depthWrite={false} blending={THREE.AdditiveBlending} />
             </Points>
 
             {/* Outer atmosphere glow */}
             <Sphere args={[2.2, 32, 32]}>
-                <meshStandardMaterial color="#ff0000" transparent opacity={0.05} side={THREE.BackSide} blending={THREE.AdditiveBlending} />
+                <meshStandardMaterial color="#A855F7" transparent opacity={0.05} side={THREE.BackSide} blending={THREE.AdditiveBlending} />
             </Sphere>
         </group>
     );
@@ -85,15 +85,15 @@ const OrbitRings = () => {
             <group ref={ringsRef}>
                 <mesh rotation={[Math.PI / 2, 0, 0]}>
                     <torusGeometry args={[2.5, 0.01, 16, 100]} />
-                    <meshBasicMaterial color="#ff5555" transparent opacity={0.3} blending={THREE.AdditiveBlending} />
+                    <meshBasicMaterial color="#A855F7" transparent opacity={0.3} blending={THREE.AdditiveBlending} />
                 </mesh>
                 <mesh rotation={[0, Math.PI / 3, 0]}>
                     <torusGeometry args={[2.9, 0.005, 16, 100]} />
-                    <meshBasicMaterial color="#ff0000" transparent opacity={0.4} blending={THREE.AdditiveBlending} />
+                    <meshBasicMaterial color="#7C3AED" transparent opacity={0.4} blending={THREE.AdditiveBlending} />
                 </mesh>
                 <mesh rotation={[Math.PI / 4, 0, Math.PI / 6]}>
                     <torusGeometry args={[3.2, 0.02, 16, 50]} />
-                    <meshBasicMaterial color="#ff2222" wireframe transparent opacity={0.15} blending={THREE.AdditiveBlending} />
+                    <meshBasicMaterial color="#EC4899" wireframe transparent opacity={0.15} blending={THREE.AdditiveBlending} />
                 </mesh>
             </group>
 
@@ -105,11 +105,11 @@ const OrbitRings = () => {
                 </mesh>
                 <mesh position={[-2.8, 1, 0]}>
                     <sphereGeometry args={[0.03, 16, 16]} />
-                    <meshBasicMaterial color="#ffaaaa" />
+                    <meshBasicMaterial color="#EC4899" />
                 </mesh>
                 <mesh position={[0, -2.7, 1.5]}>
                     <sphereGeometry args={[0.04, 16, 16]} />
-                    <meshBasicMaterial color="#ff0000" />
+                    <meshBasicMaterial color="#7C3AED" />
                 </mesh>
             </group>
         </group>
@@ -184,7 +184,7 @@ const Preloader = forwardRef(({ onComplete }, ref) => {
                 {/* Increased camera distance / fov to fit the rings */}
                 <Canvas camera={{ position: [0, 0, 8.5], fov: 45 }} gl={{ antialias: true, alpha: true }}>
                     <ambientLight intensity={0.5} />
-                    <pointLight position={[10, 10, 10]} intensity={1} color="#ff0000" />
+                    <pointLight position={[10, 10, 10]} intensity={1} color="#A855F7" />
                     <TechGlobe />
                     <OrbitRings />
                     <EffectComposer>
@@ -233,7 +233,7 @@ const Preloader = forwardRef(({ onComplete }, ref) => {
                     style={{
                         width: '100%',
                         height: '100%',
-                        background: '#ff0000',
+                        background: 'linear-gradient(to right, #7C3AED, #A855F7)',
                         transformOrigin: 'left'
                     }}
                     initial={{ scaleX: 0 }}
