@@ -1,5 +1,5 @@
 import React, { useState, useEffect, forwardRef } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const POOL = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#@!%&';
 
@@ -53,7 +53,7 @@ const Preloader = forwardRef(({ onComplete }, ref) => {
     }, [line1.done, line2.done, onComplete]);
 
     return (
-        <motion.div
+        <m.div
             ref={ref}
             initial={{ y: 0 }}
             exit={{ y: '-100%', transition: { duration: 0.72, ease: [0.76, 0, 0.24, 1] } }}
@@ -82,7 +82,7 @@ const Preloader = forwardRef(({ onComplete }, ref) => {
 
             <div style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
                 {/* Label */}
-                <motion.p
+                <m.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
@@ -96,7 +96,7 @@ const Preloader = forwardRef(({ onComplete }, ref) => {
                     }}
                 >
                     PORTFOLIO — 2026
-                </motion.p>
+                </m.p>
 
                 {/* Scrambling name */}
                 <div
@@ -115,7 +115,7 @@ const Preloader = forwardRef(({ onComplete }, ref) => {
 
                 {/* Accent sweep line */}
                 <div style={{ position: 'relative', height: '2px', marginTop: '16px', overflow: 'hidden' }}>
-                    <motion.div
+                    <m.div
                         initial={{ scaleX: 0 }}
                         animate={showBar ? { scaleX: 1 } : { scaleX: 0 }}
                         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
@@ -128,7 +128,7 @@ const Preloader = forwardRef(({ onComplete }, ref) => {
                     />
                 </div>
             </div>
-        </motion.div>
+        </m.div>
     );
 });
 

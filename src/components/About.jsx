@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import profileImg from '../assets/profile.jpg';
 
@@ -32,19 +32,21 @@ const About = () => {
                     {/* Left: stats + photo */}
                     <div>
                         {stats.map((s, i) => (
-                            <motion.div key={i} {...fadeUp(i * 0.1)} className="stat-row">
+                            <m.div key={i} {...fadeUp(i * 0.1)} className="stat-row">
                                 <div className="stat-num">{s.num}</div>
                                 <div className="stat-label">{s.label}</div>
-                            </motion.div>
+                            </m.div>
                         ))}
 
-                        <motion.div
+                        <m.div
                             {...fadeUp(0.4)}
                             style={{ marginTop: '40px', position: 'relative', overflow: 'hidden' }}
                         >
                             <img
                                 src={profileImg}
                                 alt="Matěj Machovský"
+                                loading="lazy"
+                                decoding="async"
                                 style={{
                                     width: '100%',
                                     aspectRatio: '3/4',
@@ -67,12 +69,12 @@ const About = () => {
                             }}>
                                 Matěj Machovský — 2026
                             </div>
-                        </motion.div>
+                        </m.div>
                     </div>
 
                     {/* Right: heading + bio + info grid */}
                     <div>
-                        <motion.h2
+                        <m.h2
                             {...fadeUp(0.1)}
                             style={{
                                 fontSize: 'clamp(3rem, 6vw, 5.5rem)',
@@ -80,9 +82,9 @@ const About = () => {
                             }}
                         >
                             {t.about.title}
-                        </motion.h2>
+                        </m.h2>
 
-                        <motion.p
+                        <m.p
                             {...fadeUp(0.2)}
                             style={{
                                 fontSize: '1.05rem',
@@ -93,11 +95,11 @@ const About = () => {
                             }}
                         >
                             {t.about.bio}
-                        </motion.p>
+                        </m.p>
 
                         <div className="info-grid">
                             {t.about.cards.map((card, i) => (
-                                <motion.div
+                                <m.div
                                     key={i}
                                     {...fadeUp(0.1 + i * 0.07)}
                                     className="info-cell"
@@ -119,7 +121,7 @@ const About = () => {
                                     }}>
                                         {card.desc}
                                     </div>
-                                </motion.div>
+                                </m.div>
                             ))}
                         </div>
                     </div>

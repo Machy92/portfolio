@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Github, Linkedin, Mail, Instagram } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -29,7 +29,7 @@ const Contact = () => {
                     <span className="section-label-text">{t.contact.title}</span>
                 </div>
 
-                <motion.div {...fadeUp(0)}>
+                <m.div {...fadeUp(0)}>
                     <h2 style={{
                         fontSize: 'clamp(2.8rem, 7vw, 6rem)',
                         marginBottom: '20px',
@@ -46,9 +46,9 @@ const Contact = () => {
                     }}>
                         {t.contact.desc}
                     </p>
-                </motion.div>
+                </m.div>
 
-                <motion.a
+                <m.a
                     {...fadeUp(0.15)}
                     href="mailto:machy.machy92@gmail.com"
                     className="contact-email"
@@ -56,9 +56,9 @@ const Contact = () => {
                     machy.machy92
                     <br />
                     @gmail.com
-                </motion.a>
+                </m.a>
 
-                <motion.div
+                <m.div
                     {...fadeUp(0.25)}
                     style={{
                         marginTop: '56px',
@@ -95,7 +95,7 @@ const Contact = () => {
                             {label}
                         </a>
                     ))}
-                </motion.div>
+                </m.div>
 
                 <footer style={{
                     marginTop: '64px',

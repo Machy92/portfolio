@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
 const skills = [
@@ -21,7 +21,7 @@ const Skills = () => {
                     <span className="section-label-text">{t.skills.title}</span>
                 </div>
 
-                <motion.h2
+                <m.h2
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -29,11 +29,11 @@ const Skills = () => {
                     style={{ fontSize: 'clamp(2.8rem, 7vw, 6rem)', marginBottom: '56px' }}
                 >
                     {t.skills.title}
-                </motion.h2>
+                </m.h2>
 
                 <div className="skills-grid">
                     {skills.map((skill, i) => (
-                        <motion.div
+                        <m.div
                             key={skill}
                             className="skill-item"
                             initial={{ opacity: 0 }}
@@ -42,7 +42,7 @@ const Skills = () => {
                             transition={{ delay: i * 0.035 }}
                         >
                             {skill}
-                        </motion.div>
+                        </m.div>
                     ))}
                 </div>
             </div>

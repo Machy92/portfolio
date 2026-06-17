@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -13,7 +13,7 @@ const staticData = [
 const ProjectRow = ({ title, link, tech, year, index }) => {
     const num = String(index + 1).padStart(2, '0');
     return (
-        <motion.a
+        <m.a
             href={link}
             target="_blank"
             rel="noopener noreferrer"
@@ -32,7 +32,7 @@ const ProjectRow = ({ title, link, tech, year, index }) => {
             </div>
             <span className="project-year">{year}</span>
             <ArrowUpRight size={17} className="project-arrow" />
-        </motion.a>
+        </m.a>
     );
 };
 
@@ -48,7 +48,7 @@ const Projects = () => {
                     <span className="section-label-text">{t.projects.title}</span>
                 </div>
 
-                <motion.h2
+                <m.h2
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -56,7 +56,7 @@ const Projects = () => {
                     style={{ fontSize: 'clamp(2.8rem, 7vw, 6rem)', marginBottom: '56px' }}
                 >
                     {t.projects.title}
-                </motion.h2>
+                </m.h2>
 
                 <div className="project-list">
                     {t.projects.items.map((item, i) => (

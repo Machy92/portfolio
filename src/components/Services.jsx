@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -17,7 +17,7 @@ const Services = () => {
                     <span className="section-label-text">{t.services.title}</span>
                 </div>
 
-                <motion.h2
+                <m.h2
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -25,11 +25,11 @@ const Services = () => {
                     style={{ fontSize: 'clamp(2.8rem, 7vw, 6rem)', marginBottom: '56px' }}
                 >
                     {t.services.title}
-                </motion.h2>
+                </m.h2>
 
                 <div className="service-rows">
                     {t.services.cards.map((service, i) => (
-                        <motion.div
+                        <m.div
                             key={i}
                             className="service-row"
                             initial={{ opacity: 0, y: 16 }}
@@ -72,7 +72,7 @@ const Services = () => {
                                 className="service-arrow"
                                 style={{ color: 'var(--text-subtle)', flexShrink: 0 }}
                             />
-                        </motion.div>
+                        </m.div>
                     ))}
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -67,7 +67,7 @@ const Navbar = () => {
 
             <AnimatePresence>
                 {menuOpen && (
-                    <motion.div
+                    <m.div
                         className="mobile-menu-overlay"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -75,7 +75,7 @@ const Navbar = () => {
                         transition={{ duration: 0.18 }}
                     >
                         {links.map((link, i) => (
-                            <motion.a
+                            <m.a
                                 key={link.id}
                                 href={link.href}
                                 className="mobile-menu-link"
@@ -85,7 +85,7 @@ const Navbar = () => {
                                 onClick={() => setMenuOpen(false)}
                             >
                                 {link.label}
-                            </motion.a>
+                            </m.a>
                         ))}
                         <button
                             className="nav-lang-btn"
@@ -94,7 +94,7 @@ const Navbar = () => {
                         >
                             {language === 'cs' ? 'EN' : 'CS'}
                         </button>
-                    </motion.div>
+                    </m.div>
                 )}
             </AnimatePresence>
         </>

@@ -10,33 +10,35 @@ import Contact from './components/Contact';
 import SmoothScroll from './components/SmoothScroll';
 import { LanguageProvider } from './context/LanguageContext';
 import Preloader from './components/Preloader';
-import { AnimatePresence } from 'framer-motion';
+import { LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
     <LanguageProvider>
-      <AnimatePresence mode='wait'>
-        {isLoading && <Preloader key="preloader" onComplete={() => setIsLoading(false)} />}
-      </AnimatePresence>
+      <LazyMotion features={domAnimation}>
+        <AnimatePresence mode='wait'>
+          {isLoading && <Preloader key="preloader" onComplete={() => setIsLoading(false)} />}
+        </AnimatePresence>
 
-      {!isLoading && (
-        <>
-          <Navbar />
-          <Background />
-          <SmoothScroll>
-            <div className="App">
-              <Hero />
-              <About />
-              <Services />
-              <Skills />
-              <Projects />
-              <Contact />
-            </div>
-          </SmoothScroll>
-        </>
-      )}
+        {!isLoading && (
+          <>
+            <Navbar />
+            <Background />
+            <SmoothScroll>
+              <div className="App">
+                <Hero />
+                <About />
+                <Services />
+                <Skills />
+                <Projects />
+                <Contact />
+              </div>
+            </SmoothScroll>
+          </>
+        )}
+      </LazyMotion>
     </LanguageProvider>
   );
 }

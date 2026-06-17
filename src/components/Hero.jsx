@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { ArrowRight, ArrowDown } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -27,7 +27,7 @@ const Hero = () => {
             }}
         >
             {/* Available dot — top right */}
-            <motion.div
+            <m.div
                 {...fadeUp(0.6)}
                 style={{
                     position: 'absolute',
@@ -56,7 +56,7 @@ const Hero = () => {
                 }}>
                     {language === 'cs' ? 'Dostupný pro projekty' : 'Available for projects'}
                 </span>
-            </motion.div>
+            </m.div>
 
             {/* Background year — decorative */}
             <div
@@ -79,7 +79,7 @@ const Hero = () => {
 
             <div className="container">
                 {/* CodeCore badge */}
-                <motion.div {...fadeUp(0.3)} style={{ marginBottom: '28px' }}>
+                <m.div {...fadeUp(0.3)} style={{ marginBottom: '28px' }}>
                     <a
                         href="https://codecore.cz"
                         target="_blank"
@@ -110,10 +110,10 @@ const Hero = () => {
                         <span style={{ color: 'var(--accent)', fontSize: '0.55rem' }}>▶</span>
                         {t.hero.workingAt} CodeCore.cz
                     </a>
-                </motion.div>
+                </m.div>
 
                 {/* Name */}
-                <motion.h1
+                <m.h1
                     {...fadeUp(0.45)}
                     style={{
                         fontSize: 'clamp(4rem, 14vw, 14rem)',
@@ -125,10 +125,10 @@ const Hero = () => {
                     {t.hero.title[0]}
                     <br />
                     {t.hero.title[1]}
-                </motion.h1>
+                </m.h1>
 
                 {/* Bottom row */}
-                <motion.div
+                <m.div
                     {...fadeUp(0.6)}
                     style={{
                         display: 'flex',
@@ -169,11 +169,11 @@ const Hero = () => {
                             {t.hero.learnMore}
                         </a>
                     </div>
-                </motion.div>
+                </m.div>
             </div>
 
             {/* Scroll indicator */}
-            <motion.div
+            <m.div
                 animate={{ y: [0, 7, 0] }}
                 transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
                 style={{
@@ -185,7 +185,7 @@ const Hero = () => {
                 }}
             >
                 <ArrowDown size={17} />
-            </motion.div>
+            </m.div>
         </section>
     );
 };
