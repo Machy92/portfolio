@@ -20,7 +20,7 @@ const translations = {
         about: {
             label: "01 — About",
             title: "About Me",
-            bio: "I'm a 19-year-old developer and IT student from Ústí nad Labem. I build digital experiences that are both beautiful and functional — currently crafting the web at CodeCore.cz.",
+            bio: "I'm a 19-year-old developer and IT student from Ústí nad Labem. I build websites and web applications — beautiful, fast, and functional. Currently crafting the web at CodeCore.cz.",
             yearsLabel: "Years Coding",
             journeyTitle: "My Journey",
             cards: [
@@ -45,7 +45,8 @@ const translations = {
             cards: [
                 { title: "Web Development", desc: "Custom websites built with modern technologies like React and Next.js. Fast, SEO-friendly, and responsive." },
                 { title: "UI/UX Design", desc: "Designing intuitive and visually stunning interfaces. Focusing on user experience and brand identity." },
-                { title: "Optimization", desc: "Improving website performance and speed. Ensuring your site loads fast and ranks high on search engines." }
+                { title: "Optimization", desc: "Improving website performance and speed. Ensuring your site loads fast and ranks high on search engines." },
+                { title: "Web Applications", desc: "Full-featured web apps with user authentication, real-time data, and database integration. Built with React, Next.js, and Supabase." }
             ]
         },
         projects: {
@@ -56,7 +57,8 @@ const translations = {
             items: [
                 { title: "Hostinec", desc: "A professionally crafted website for a traditional Czech inn. Focused on increasing reservation conversions and showcasing the menu with a modern, appetizing design." },
                 { title: "K-Head Spa Therapy", desc: "A serene, spa-focused web application. Features smooth animations and a calming color palette to reflect the brand's identity. Integrated booking information." },
-                { title: "School Portfolio System", desc: "An upcoming centralized platform for student portfolios. Will feature real-time updates and admin dashboards." }
+                { title: "Markéta Beauty", desc: "A modern website for a beauty salon in Ústí nad Labem. Clean layout, service overview, and a calming aesthetic tailored to the brand." },
+                { title: "Barel Cup 2026", desc: "A web application for a street hockey tournament. Features team registration, a standings table, and live event information." }
             ]
         },
         contact: {
@@ -83,7 +85,7 @@ const translations = {
         about: {
             label: "01 — O Mně",
             title: "O Mně",
-            bio: "Jsem 19letý vývojář a student IT z Ústí nad Labem. Tvořím digitální zážitky, které jsou krásné i funkční — momentálně buduji web na CodeCore.cz.",
+            bio: "Jsem 19letý vývojář a student IT z Ústí nad Labem. Tvořím weby i webové aplikace — krásné, rychlé a funkční. Momentálně buduji web na CodeCore.cz.",
             yearsLabel: "Let Kóduji",
             journeyTitle: "Můj Příběh",
             cards: [
@@ -108,7 +110,8 @@ const translations = {
             cards: [
                 { title: "Web Vývoj", desc: "Weby na míru postavené na moderních technologiích jako React a Next.js. Rychlé, SEO-friendly a responsivní." },
                 { title: "UI/UX Design", desc: "Navrhování intuitivních a vizuálně úchvatných rozhraní. Důraz na uživatelskou přívětivost a identitu značky." },
-                { title: "Optimalizace", desc: "Zlepšování výkonu a rychlosti webu. Zajištění rychlého načítání a vysokých pozic ve vyhledávačích." }
+                { title: "Optimalizace", desc: "Zlepšování výkonu a rychlosti webu. Zajištění rychlého načítání a vysokých pozic ve vyhledávačích." },
+                { title: "Webové Aplikace", desc: "Plnohodnotné webové aplikace s přihlašováním, real-time daty a databázovou integrací. Postavené na Reactu, Next.js a Supabase." }
             ]
         },
         projects: {
@@ -119,7 +122,8 @@ const translations = {
             items: [
                 { title: "Hostinec", desc: "Profesionálně zpracovaný web pro tradiční českou hospodu. Zaměřeno na zvýšení rezervací a prezentaci menu v moderním, chutném designu." },
                 { title: "K-Head Spa Therapy", desc: "Klidná webová aplikace pro lázeňské služby. Využívá jemné animace a uklidňující barvy. Integrované rezervační informace." },
-                { title: "Školní Portfolia", desc: "Připravovaná centralizovaná platforma pro studentská portfolia. Bude obsahovat real-time aktualizace a dashboardy." }
+                { title: "Markéta Beauty", desc: "Moderní web pro kosmetický salon v Ústí nad Labem. Čistý layout, přehled služeb a uklidňující estetika přizpůsobená značce." },
+                { title: "Barel Cup 2026", desc: "Webová aplikace pro streetový hokejbalový turnaj. Registrace týmů, tabulka výsledků a aktuální informace o turnaji." }
             ]
         },
         contact: {

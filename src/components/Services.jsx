@@ -1,84 +1,78 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Monitor, Palette, Zap } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-const icons = [Monitor, Palette, Zap];
-
-const ServiceCard = ({ icon: Icon, title, desc, delay }) => (
-    <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay }}
-        whileHover={{ y: -8, borderColor: 'rgba(168, 85, 247, 0.28)' }}
-        className="glass"
-        style={{
-            padding: '36px 32px',
-            display: 'flex',
-            flexDirection: 'column',
-            transition: 'transform 0.3s, border-color 0.3s',
-        }}
-    >
-        <div
-            style={{
-                background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.14), rgba(236, 72, 153, 0.08))',
-                padding: '14px',
-                borderRadius: '14px',
-                marginBottom: '22px',
-                color: 'var(--primary)',
-                width: 'fit-content',
-                display: 'flex',
-            }}
-        >
-            <Icon size={26} />
-        </div>
-        <h3 style={{ fontSize: '1.2rem', marginBottom: '12px', fontWeight: '600' }}>{title}</h3>
-        <p style={{ color: 'var(--text-secondary)', lineHeight: 1.65, fontSize: '0.925rem' }}>{desc}</p>
-    </motion.div>
-);
+const SERVICE_NUMS = ['01', '02', '03', '04'];
 
 const Services = () => {
     const { t } = useLanguage();
 
     return (
-        <section id="services" style={{ padding: '120px 0' }}>
+        <section id="services" className="section">
             <div className="container">
-                <motion.span
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="section-label"
-                    style={{ display: 'inline-flex' }}
-                >
-                    {t.services.label}
-                </motion.span>
+
+                <div className="section-header">
+                    <span className="section-index">02</span>
+                    <span className="section-label-text">{t.services.title}</span>
+                </div>
 
                 <motion.h2
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.1 }}
-                    className="text-gradient"
-                    style={{
-                        fontSize: 'clamp(2rem, 5vw, 3.2rem)',
-                        marginBottom: '56px',
-                        fontWeight: '700',
-                        lineHeight: 1.1,
-                    }}
+                    transition={{ duration: 0.6 }}
+                    style={{ fontSize: 'clamp(2.8rem, 7vw, 6rem)', marginBottom: '56px' }}
                 >
                     {t.services.title}
                 </motion.h2>
 
-                <div
-                    style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                        gap: '24px',
-                    }}
-                >
-                    {t.services.cards.map((s, i) => (
-                        <ServiceCard key={i} {...s} icon={icons[i]} delay={i * 0.12} />
+                <div className="service-rows">
+                    {t.services.cards.map((service, i) => (
+                        <motion.div
+                            key={i}
+                            className="service-row"
+                            initial={{ opacity: 0, y: 16 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.08 }}
+                        >
+                            <span style={{
+                                fontFamily: 'JetBrains Mono, monospace',
+                                fontSize: '0.62rem',
+                                color: 'var(--text-subtle)',
+                                letterSpacing: '0.06em',
+                            }}>
+                                {SERVICE_NUMS[i]}
+                            </span>
+
+                            <h3
+                                className="service-name"
+                                style={{
+                                    fontFamily: 'Bebas Neue, sans-serif',
+                                    fontSize: 'clamp(1.5rem, 3vw, 2.2rem)',
+                                    fontWeight: 400,
+                                    letterSpacing: '0.03em',
+                                    lineHeight: 1,
+                                }}
+                            >
+                                {service.title}
+                            </h3>
+
+                            <p style={{
+                                fontSize: '0.9rem',
+                                color: 'var(--text-muted)',
+                                lineHeight: 1.65,
+                            }}>
+                                {service.desc}
+                            </p>
+
+                            <ArrowUpRight
+                                size={18}
+                                className="service-arrow"
+                                style={{ color: 'var(--text-subtle)', flexShrink: 0 }}
+                            />
+                        </motion.div>
                     ))}
                 </div>
             </div>

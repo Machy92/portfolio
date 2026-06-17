@@ -3,79 +3,50 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
 const skills = [
-    "React", "Three.js", "JavaScript", "Node.js", "CSS3", "HTML5",
-    "Git", "Framer Motion", "Next.js", "Vite", "Supabase", "TypeScript"
+    'React', 'Next.js', 'TypeScript', 'JavaScript',
+    'Three.js', 'Framer Motion', 'Tailwind', 'CSS',
+    'Node.js', 'Supabase', 'Vite', 'Git',
+    'Figma', 'HTML5', 'WebGL', 'REST APIs',
 ];
 
 const Skills = () => {
     const { t } = useLanguage();
 
     return (
-        <div
-            style={{
-                overflow: 'hidden',
-                padding: '56px 0',
-                borderTop: '1px solid var(--glass-border)',
-                borderBottom: '1px solid var(--glass-border)',
-            }}
-        >
+        <section id="skills" className="section">
             <div className="container">
-                <p
-                    style={{
-                        textAlign: 'center',
-                        marginBottom: '28px',
-                        color: 'var(--text-muted)',
-                        fontSize: '0.7rem',
-                        letterSpacing: '3px',
-                        textTransform: 'uppercase',
-                        fontWeight: '600',
-                    }}
+
+                <div className="section-header">
+                    <span className="section-index">03</span>
+                    <span className="section-label-text">{t.skills.title}</span>
+                </div>
+
+                <motion.h2
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    style={{ fontSize: 'clamp(2.8rem, 7vw, 6rem)', marginBottom: '56px' }}
                 >
                     {t.skills.title}
-                </p>
-            </div>
+                </motion.h2>
 
-            <div style={{ display: 'flex', whiteSpace: 'nowrap', overflow: 'hidden' }}>
-                <motion.div
-                    animate={{ x: ['0%', '-50%'] }}
-                    transition={{ repeat: Infinity, ease: 'linear', duration: 28 }}
-                    style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0',
-                        paddingRight: '0',
-                    }}
-                >
-                    {[...skills, ...skills].map((skill, index) => (
-                        <React.Fragment key={index}>
-                            <span
-                                style={{
-                                    fontSize: '1.1rem',
-                                    fontWeight: '700',
-                                    color: 'rgba(255, 255, 255, 0.18)',
-                                    textTransform: 'uppercase',
-                                    letterSpacing: '3px',
-                                    padding: '0 32px',
-                                    fontFamily: 'Space Grotesk, sans-serif',
-                                }}
-                            >
-                                {skill}
-                            </span>
-                            <span
-                                style={{
-                                    color: 'var(--primary)',
-                                    fontSize: '0.4rem',
-                                    opacity: 0.5,
-                                    flexShrink: 0,
-                                }}
-                            >
-                                ◆
-                            </span>
-                        </React.Fragment>
+                <div className="skills-grid">
+                    {skills.map((skill, i) => (
+                        <motion.div
+                            key={skill}
+                            className="skill-item"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.035 }}
+                        >
+                            {skill}
+                        </motion.div>
                     ))}
-                </motion.div>
+                </div>
             </div>
-        </div>
+        </section>
     );
 };
 
